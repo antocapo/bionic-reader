@@ -1,0 +1,3 @@
+Bionic reading is a concept and technique for reading that involves artificially making bold the first few letters of a written word and letting the brain fill in the rest. This technique is based on the principle that the brain can identify whole words from just the initial few letters. By emphasizing the beginnings of words, the brain can quickly identify the word and move on to the next one, making reading faster and more efficient.
+
+This website allows you to enter text in the in textarea and after clicking the convert button, it will output the entered text in the second textarea with the first 3 letters of every word being bold (or only the first if the word contains less than 3 letters).

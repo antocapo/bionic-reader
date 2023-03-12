@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bold first 3 letters</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <h1>
+        Bio<span class="white">nic</span> Rea<span class="white">der</span>
+      </h1>
+    </nav>
+
+    <div class="container">
+      <textarea
+        id="input"
+        cols="30"
+        rows="10"
+        placeholder="Enter your text here..."
+      ></textarea>
+      <!--NOTE when I use textarea for the output it doesn't make it bold instead it adds the tags. But as I accidentaly missspled textarea as teaxtarea it works correctly but doesn't shoe the textarea grid
+      Reason: the textarea is not showing the bold text is because the textarea element does not support HTML formatting. It only displays plain text.
+      Solution: use a div instead for the output-->
+      <div id="output" cols="30" rows="10"></div>
+    </div>
+
+    <div class="wrapper">
+      <button class="blue-btn" onclick="convert()">Convert text</button>
+      <button class="orange-btn" onclick="deleteText()">Delete text</button>
+    </div>
+
+    <footer>
+      <small>Footer</small>
+    </footer>
+
+    <script type="text/javascript">
+      function convert() {
+        var input = document.getElementById("input").value;
+        var output = ""; /*accumulator*/
+        var words =
+          input.split(
+            " "
+          ); /*spliting input into single words so we can loop through them*/
+        for (var i = 0; i < words.length; i++) {
+          var word = words[i];
+          var bolded = "";
+          if (word.length >= 3) {
+            /*NOTE there needs to be a bold-letters class in the css file otherwise it will just add the b tag instead of making it actually bold*/
+            bolded =
+              '<span class="bold-letters">' +
+              word.substring(0, 3) +
+              "</span>" +
+              word.substring(3);
+          } else {
+            /*only bold 1 lettter for words with less than 3 chars*/
+            bolded =
+              '<span class="bold-letters">' +
+              word.substring(0, 1) +
+              "</span>" +
+              word.substring(1);
+          }
+          output += bolded + " ";
+        }
+        document.getElementById("output").innerHTML = output;
+      }
+
+      function deleteText() {
+        document.getElementById("input").value = "";
+        document.getElementById("output").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
